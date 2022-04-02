@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project is deployed [here](https://verdant-crepe-11f2a8.netlify.app/).
+
+Note: This project was part of interview-assignment and it needs to be polished more.
+
 ## Available Scripts
 
 In the project directory, you can run:
