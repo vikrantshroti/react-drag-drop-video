@@ -162,8 +162,10 @@ function App() {
         style={{ backgroundColor: isDragging ? "white" : "purple" }}
       >
         <video
-          width={200}
-          height={300}
+          // width={200}
+          // height={300}
+          width={"100%"}
+          height={"100%"}
           controls
           autoPlay={false}
           id={"videoId"}
