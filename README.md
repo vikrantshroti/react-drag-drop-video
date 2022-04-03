@@ -1,10 +1,11 @@
-# Drag Drop Video element
+# React Drag Drop Video element
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This project is deployed [here](https://verdant-crepe-11f2a8.netlify.app/).
 
-Note: This project was part of interview-assignment and it needs to be polished more.
+Note 1: Please test this on latest chrome for best results.
+Note 2: This project was part of interview-assignment with limited amount of time.
 
 ## Available Scripts
 
