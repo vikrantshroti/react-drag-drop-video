@@ -33,50 +33,6 @@ function App() {
     }
   }
 
-  // function invoked when touch event for mobile is started
-  const onTouchStartListener = (e) => {
-    console.log("onTouchStartListener", e);
-    // e.preventDefault();
-    let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
-    let touch = evt.touches[0] || evt.changedTouches[0];
-    const x = +touch.pageX;
-    const y = +touch.pageY;
-
-    // get the mouse cursor position at startup:
-    setXAtTouchPointStart(x);
-    setYAtTouchPointStart(y);
-    setIsDragging(true);
-    toggleVideoPlayback();
-  };
-
-  // function invoked when touch for desktop is started
-  const onPointerDownListener = (e) => {
-    // e.preventDefault();
-    const x = e.pageX;
-    const y = e.pageY;
-    // get the mouse cursor position at startup:
-    setXAtTouchPointStart(x);
-    setYAtTouchPointStart(y);
-    setIsDragging(true);
-    toggleVideoPlayback();
-  };
-
-  // function invoked when touch for mobile is ended
-  const onTouchEndListener = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-    setVideoStyles();
-    if (!isDragging) toggleVideoPlayback();
-  };
-
-  // function invoken when touch for desktop is ended
-  const onPointerUpListener = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-    setVideoStyles();
-    if (!isDragging) toggleVideoPlayback();
-  };
-
   // function used to set styles on target element
   function setVideoStyles() {
     if (top === 0 || left === 0) {
@@ -94,9 +50,30 @@ function App() {
     }
   }
 
+  // function invoked when touch event for mobile is started
+  const onTouchStartListener = (e) => {
+    let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
+    let touch = evt.touches[0] || evt.changedTouches[0];
+    const x = +touch.pageX;
+    const y = +touch.pageY;
+
+    // get the mouse cursor position at startup
+    setXAtTouchPointStart(x);
+    setYAtTouchPointStart(y);
+    setIsDragging(true);
+    // toggleVideoPlayback();
+  };
+
+  // function invoked when touch for mobile is ended
+  const onTouchEndListener = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    setVideoStyles();
+    if (!isDragging) toggleVideoPlayback();
+  };
+
   // function invoked while touch event is going on (mobile)
   const onTouchMoveListener = (e) => {
-    console.log("onTouchMoveListener");
     e = e || window.event;
     // e.preventDefault();
     let x = 0;
@@ -134,8 +111,28 @@ function App() {
     videoPlayer && videoPlayer.pause();
   };
 
-  // function invoked while touch event is going on (desktop)
+  // function invoked when touch for desktop is started
+  const onPointerDownListener = (e) => {
+    const x = e.pageX;
+    const y = e.pageY;
+    // get the mouse cursor position at startup:
+    setXAtTouchPointStart(x);
+    setYAtTouchPointStart(y);
+    setIsDragging(true);
+  };
+
+  // function invoken when touch for desktop is ended
+  const onPointerUpListener = () => {
+    if (!isDragging) toggleVideoPlayback();
+  };
+
+  // function invoked while pointer is moved on elenent (desktop)
   const onPointerMoveListener = (e) => {
+    // intentionally left empty
+  };
+
+  // function invoked while pointer leaves element (desktop)
+  const onPointerLeaveListener = (e) => {
     let x = +e.clientX;
     let y = +e.clientY;
 
@@ -146,8 +143,8 @@ function App() {
     // set the element's new position:
     setTop(yRelativeToStart);
     setLeft(xRelativeToStart);
-
-    videoPlayer && videoPlayer.pause();
+    setIsDragging(false);
+    setVideoStyles();
   };
 
   return (
@@ -161,6 +158,8 @@ function App() {
         onPointerDown={(e) => onPointerDownListener(e)}
         onPointerUp={onPointerUpListener}
         onPointerMove={onPointerMoveListener}
+        onPointerLeave={onPointerLeaveListener}
+        style={{ backgroundColor: isDragging ? "white" : "purple" }}
       >
         <video
           width={"100%"}
