@@ -7,6 +7,29 @@ This project is deployed [here](https://verdant-crepe-11f2a8.netlify.app/).
 Note 1: Please test this on latest chrome for best results.
 Note 2: This project was part of interview-assignment with limited amount of time.
 
+## Assignment details
+
+Create a video element (with any mp4/mov video) of size: 200:300px (width:height) and
+place it at the bottom left of the screen.
+You should be able to drag and drop the element at any corner of the screen. Consider
+the screen to be of 4 quarters and when you drop the element at any quarter, it
+should get placed at the corner of that quarter.
+Requirements:
+
+1. Should work in both mobile and desktop. Use React for this.
+2. Write your own logic to handle Drag and Drop events
+3. The video element should be in the pause state by default.
+4. On click/touch of the video element, the video should play or pause.
+5. On dragging, the video should move but go to a paused state irrespective of
+   the current state(playing or pause) of the video.
+6. You need to test it on a mobile device as well (not just on the desktop
+   browser)
+
+### Optional:
+
+7. The transition after you release the video should be smooth.
+8. Style the video container such that it stands out from the body.
+
 ## Available Scripts
 
 In the project directory, you can run:

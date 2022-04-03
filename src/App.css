@@ -10,7 +10,7 @@
 .App-video-element {
   height: 50vh;
   width: 50vw;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .App-top-left {
@@ -19,7 +19,7 @@
   top: 0;
   right: auto;
   bottom: auto;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .App-top-right {
@@ -28,7 +28,7 @@
   top: 0;
   right: 0;
   bottom: auto;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .App-bottom-left {
@@ -37,7 +37,7 @@
   top: auto;
   right: auto;
   bottom: 0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .App-bottom-right {
@@ -46,6 +46,6 @@
   top: auto;
   bottom:0;
   right:0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
